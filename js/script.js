@@ -1,149 +1,87 @@
-// WRITES p@$$W0RD INPUT FOR #password FUNCTION
-function writePassword(){
-var password - generate{assword();}
-var passwordText - document.querySelector("#password");
-
-}
-// HTML BUTTON GENERATION
-const generateBtn = document.querySelector('#generate')
-
 //ARR
-const upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-const lowerCase = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-const numberChars = ['1','2','3','4','5','6','7','8','9'];
-const specialChars = ['0','!', '”', '#','$', '%', '&', '’', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\', {', '|', '}', '~'];
-    
+capAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+regAlphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "?", "/", "+"];
+
 // DIFFERENT GLOBAL VARIABLES
-const lowercaseChars = [];
-const specialChars = [];
-const numbericChars = [];
-const uppercaseChars = [],
+var lengths;
+var chooseCapital;
+var chooseLower;
+var chooseNumber;
+var chooseSymbol;
+var substantiated = [];
 
 //----------------------------------------------------------------------------------------------------------------
 // ASCERTAINs AN ITEM FROM THE ARRAY RANDOMLY
-const getRandomChar = function (array){
-    const randomIndex = math.floor(math.random() * array.length);
-    const randomItem = array(randomIndex);
-
-    return randomIndex
+function getRandomChar(array) {
+    var randomIndex = Math.floor(Math.random() * array.length);
+    var randomChar = array[randomIndex];
+    console.log("Due Diligence");
+    console.log(randomChar);
+    return randomChar;
 };
 
-const getRandomIndex = function (array){
-    const randomIndex = Math.floor(Math.random() * array.length);
+// PASSWORD OPTIONS GENERATOR
+function generatePassword() {
+    var result = [];
+     lengths = parseInt(window.prompt("Please pick a password length between 8 and 128 characters."));
+     if (!lengths) {
+       window.alert("Please pick a valid value!");
+        return generatePassword();
+    
+     } else if (lengths <= 8 || length >= 128) {
+       lengths = parseInt(window.prompt("Please choose between 8 and 128."));
+        return generatePassword();
+    
+     } else {
+       chooseCapital = window.confirm("Do you want to include capital letters?");
+       chooseLower = window.confirm("Do you want to include lowercase letters?");
+       chooseNumber = window.confirm("Do you want to include numbers?");
+       chooseSymbol = window.confirm("Do you want to include symbols?");
+     };
+    
+     if (!chooseCapital && !chooseLower && !chooseNumber && !chooseSymbol) {
+       selection = window.alert("You must choose at least one option!");
+       return generatePassword();
+     }
 
-    return randomIndex;
-};
-
-
-// REFERENCE FOR #GENERATE ELEMENT
-var generateBtn - document.querySelectorSelector("#generate");
-
-// ERECTs PASSWORD OPTIONS
-const generatePasswordOptions = function(){
-
-    const legnthInput = parseInt(prompt('HOW MANY CHARACTERS DO YOU NEED YOUR PASSWORD TO CONTAIN?'));
-
-    const uppercaseCharInput = confirm('SELECT OK TO INCLUDE UPPERCASE CHARACTERS ');
-
-    const specialCharInput = confirm('SELECT OK TO INCLUDE SPECIAL CHARACTERS ');
-
-    const lowercaseCharInput = confirm('SELECT OK TO INCLUDE LOWERCASE CHARACTERS ');
-
-    const numericCharInput = confirm('SELECT OK TO INCLUDE NUMERIC CHARACTERS ');
-
-
-if (legnthInput > 66) {
-    alert('PASSWORDS MUST not EXCEED 66 CHARACTERS')
-    return;
-}
-
-if (legnthInput < 11){
-    alert('PASSWORDS MUST ECEED 11 CHARACTERS')
-    return;
-}
-
-if (isNaN(legnthInput) === true) {
-    alert ('PASSWORD LEGNTH MUST BE DISPLAYED AS A NUMERICAL VALUE')
-    return;
-}
-
-if (
-
-hasNumericCharInput === false &&
-hasUppercaseCharInput === false &&
-hasLowercaseCharInput === false &&
-hasSpecialCharInput === false 
-)   {
-    alert( 'You Must Accept At Minimun One Character Type';
-    return;
+// CONDITIONAL IF/THEN STATEMENTS
+    if (chooseCapital) {
+        substantiated = substantiated.concat(capAlphabet);
     }
 
-const passwordOptions = {
-    legnth: legnthInput,
-    hasSpecialChar: hasSpecialCharInput,
-    hasNumericChar: hasNumericCharInput;
-    hasLowercaseCharInput: hasLowercaseCharInput;
-    hasUppercaseCharInput: hasUppercaseCharInput;
+    if (chooseLower) {
+        substantiated = substantiated.concat(regAlphabet);
+    }
 
-};
-return passwordOptions;
+    if (chooseNumber) {
+        substantiated = substantiated.concat(numbers);
+    }
 
-} ;
-
-
-// PASSWORD GENERATOR
-const generatePassword = function (){
-const options = generatePasswordOptions();
-
+    if (chooseSymbol) {
+        substantiated = substantiated.concat(symbols);
+    }
 // STORAGE FOR STORING ARRAY RESULTS
-const result = [];
-
-// STORAGE FOR STORING p@$$W0RDS
-let possibleCharArray = [];
-
-// STOREHOUSE-GUARANTEES THAT ONE TYPE OF EACH CHARATER WILL BE INCLUDED
-let guaranteedChars = [];
-
-
-// VERIFIES APPROVAL FROM USERS & ADDS CHARACTERS TO INDIVIDUAL ARR
-        if (options.hasLowercaseChars) {
-    possibleCharArr = possibleCharArray.concat(lowercaseChars);
-    guaranteedChars.push(getRandomChar(lowercaseChars));
-    }
-
-        if (options.hasUppercaseChars) {
-        possibleCharArr = possibleCharArray.concat(uppercaseChars);
-        guaranteedChars.push(getRandomChar(uppercaseChars));
-        }
-        if (options.hasNumericcaseChars) {
-            possibleCharArr = possibleCharArray.concat(numericChars);
-            guaranteedChars.push(getRandomChar(numericChars));
-            }
-         if (options.hasSpecialcaseChars) {
-                possibleCharArr = possibleCharArray.concat(specialcaseChars);
-                guaranteedChars.push(getRandomChar(specialChars));
-                }
-// LOOP ITERATOR FOR p@$$WORD LENGTH FROM THE OPTIONS-OBJECT THEN
-// SELECTS INDICIES RANDOMLY FROM possibleCharsArr & 
-// INPUTS INTO p@$$W0RD RESULT
-        for (let i = 1; i < options.length; i++) {
-            const possibleChars = getRandomIndex(result)
-            result.push(possibleChars);
-            }
+    for (var i = 0; i < lengths; i++) {
         
-    // MIXES IN AT MINIMUM 1 OF EACH GUARANTTEED CHARACTERS IN THE RESULT
-        for (let i = 1; i < guaranteedChars.length; i++) {
-            let ran
-            
-    // RETURN THE RESULT AFTER THE STRING IS CONVERTED
-        return result.join('');
-    };
-// DISPLAY p@$$WORD IN HTML FORMAT
-const displayPassword = function () {
-const password = generatePassword();
-const passwordTexas = document.getElementById('password');
-passwordTexas.value = password;
-};
+        var randomChar = getRandomChar(substantiated);
+        result.push(randomChar);
+    }
+    console.log(result);
 
+// RETURN THE RESULT AFTER THE STRING IS CONVERTED
+    substantiated = [];
+    return result.join("");
+};
+// HTML BUTTON GENERATION FOR #generate element
+var generateBtn = document.querySelector("#generate");
+
+// Write COMPLEX PASSPHRASE to the #password input
+function writePassword() {
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
+    passwordText.value = password;
+}
 // LISTENERS FOR EVENTS i.e .button click
-generateBtn.addEventListener('click', displayPassword);
+generateBtn.addEventListener("click", writePassword);
