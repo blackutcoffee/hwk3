@@ -25,20 +25,20 @@ function getRandomChar(array) {
 // PASSWORD OPTIONS GENERATOR
 function generatePassword() {
     var result = [];
-     lengths = parseInt(window.prompt("Please pick a password length between 8 and 128 characters."));
+     lengths = parseInt(window.prompt("Please select a password length between 11 and 166 characters."));
      if (!lengths) {
-       window.alert("Please pick a valid value!");
+       window.alert("Please choose a valid value!");
         return generatePassword();
     
-     } else if (lengths <= 8 || length >= 128) {
-       lengths = parseInt(window.prompt("Please choose between 8 and 128."));
+     } else if (lengths <= 11 || length >= 166) {
+       lengths = parseInt(window.prompt("Please choose between 11 and 166."));
         return generatePassword();
     
      } else {
-       chooseCapital = window.confirm("Do you want to include capital letters?");
-       chooseLower = window.confirm("Do you want to include lowercase letters?");
-       chooseNumber = window.confirm("Do you want to include numbers?");
-       chooseSymbol = window.confirm("Do you want to include symbols?");
+       chooseCapital = window.confirm("Do you need to include capital letters?");
+       chooseLower = window.confirm("Do you need to include lowercase letters?");
+       chooseNumber = window.confirm("Do you need to include numbers?");
+       chooseSymbol = window.confirm("Do you need to include symbols?");
      };
     
      if (!chooseCapital && !chooseLower && !chooseNumber && !chooseSymbol) {
