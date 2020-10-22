@@ -25,13 +25,13 @@ function getRandomChar(array) {
 // PASSWORD OPTIONS GENERATOR
 function generatePassword() {
     var result = [];
-     lengths = parseInt(window.prompt("Please select a password length between 11 and 166 characters."));
+     lengths = parseInt(window.prompt("Please select a password length between 8 and 128 characters."));
      if (!lengths) {
        window.alert("Please choose a valid value!");
         return generatePassword();
     
-     } else if (lengths <= 11 || length >= 166) {
-       lengths = parseInt(window.prompt("Please choose between 11 and 166."));
+     } else if (lengths <= 8 || length >= 128) {
+       lengths = parseInt(window.prompt("Please choose between 8 and 128."));
         return generatePassword();
     
      } else {
